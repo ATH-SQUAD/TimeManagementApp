@@ -36,7 +36,8 @@ Podstawowe funkcjonalności (wyjaśnione później):
 Dla ujednolicenia nazwa ***projektu*** będzie podawana w języku angielskim - ***Time management application***.
 
 ### 1.4 Bibliografia
-List any other documents or Web addresses to which this SRS refers. These may include user interface style guides, contracts, standards, system requirements specifications, use case documents, or a vision and scope document. Provide enough information so that the reader could access a copy of each reference, including title, author, version number, date, and source or location.
+
+Brak.
 
 ### 1.5 Przegląd dokumentu
 Specyfikacja zawierać będzie opis założeń, funkcjonalności i wykorzystywanych technologii.
@@ -44,69 +45,95 @@ Specyfikacja zawierać będzie opis założeń, funkcjonalności i wykorzystywan
 ## 2. Przegląd projektu
 > This section should describe the general factors that affect the product and its requirements. This section does not state specific requirements. Instead, it provides a background for those requirements, which are defined in detail in Section 3, and makes them easier to understand.
 
-### 2.1 Product Perspective
-Describe the context and origin of the product being specified in this SRS. For example, state whether this product is a follow-on member of a product family, a replacement for certain existing systems, or a new, self-contained product. If the SRS defines a component of a larger system, relate the requirements of the larger system to the functionality of this software and identify interfaces between the two. A simple diagram that shows the major components of the overall system, subsystem interconnections, and external interfaces can be helpful.
+### 2.1 Perspektywa
+Projekt ten jest samodzielną aplikacją umożliwiającą kontrolę nad czasem pracy poprzez stronę internetową. Użytkownik logując się ma dostęp do swoich danych na temat jego obecności, zaplanowanych zadań i przerw. 
 
-### 2.2 Product Functions
-Summarize the major functions the product must perform or must let the user perform. Details will be provided in Section 3, so only a high level summary (such as a bullet list) is needed here. Organize the functions to make them understandable to any reader of the SRS. A picture of the major groups of related requirements and how they relate, such as a top level data flow diagram or object class diagram, is often effective.
+```mermaid
+graph LR
+A(Użytkownik) --- B(Przeglądarka)
+    B --- C(Aplikacja)
+    C --- D(Baza danych)
+```
 
-### 2.3 Product Constraints
-This subsection should provide a general description of any other items that will limit the developer’s options. These may include:  
+### 2.2 Funkcjonalności
 
-* Interfaces to users, other applications or hardware.  
-* Quality of service constraints.  
-* Standards compliance.  
-* Constraints around design or implementation.
+* Podział na użytkowników
+* Kontrolowanie czasu pracy (rozpoczęcie, zakończenie)
+* Planowanie zadań, urlopów
+* Proste zestawienia przechowywanych informacji
 
-### 2.4 User Characteristics
-Identify the various user classes that you anticipate will use this product. User classes may be differentiated based on frequency of use, subset of product functions used, technical expertise, security or privilege levels, educational level, or experience. Describe the pertinent characteristics of each user class. Certain requirements may pertain only to certain user classes. Distinguish the most important user classes for this product from those who are less important to satisfy.
+### 2.3 Ograniczenia
 
-### 2.5 Assumptions and Dependencies
-List any assumed factors (as opposed to known facts) that could affect the requirements stated in the SRS. These could include third-party or commercial components that you plan to use, issues around the development or operating environment, or constraints. The project could be affected if these assumptions are incorrect, are not shared, or change. Also identify any dependencies the project has on external factors, such as software components that you intend to reuse from another project, unless they are already documented elsewhere (for example, in the vision and scope document or the project plan).
+* Nie jest brane pod uwagę prawne ujęcie urlopu (zakładamy twardy, miesięczny limit)
+* *Ograniczony czas* i umiejętności zespołu
+* Brak domeny - działanie będzie wyłącznie lokalne (PoC)
 
-### 2.6 Apportioning of Requirements
-Apportion the software requirements to software elements. For requirements that will require implementation over multiple software elements, or when allocation to a software element is initially undefined, this should be so stated. A cross reference table by function and software element should be used to summarize the apportioning.
+### 2.4 Charakterystyka użytkownika
 
-Identify requirements that may be delayed until future versions of the system (e.g., blocks and/or increments).
+* Administrator
+  * Wykonywanie wszystkich, dostępnych dla użytkownika, operacji
+  * Dodatkowo możliwość usuwania efektów operacji użytkowników
+  * Zarządzanie dostępem użytkowników i ich rolami
+* Szef
+  * Wykonywanie wszystkich, dostępnych dla użytkownika, operacji
+  * Dodatkowo możliwość usuwania efektów operacji użytkowników
+  * Zarządzanie dostępem użytkowników
+* Użytkownik
+  * Kontrolowanie czasu pracy (rozpoczęcie, zakończenie)
+  * Planowanie zadań na konkretny dzień
+  * Wybieranie dni wolnych
+  * Dostęp do informacji
 
-## 3. Requirements
-> This section specifies the software product's requirements. Specify all of the software requirements to a level of detail sufficient to enable designers to design a software system to satisfy those requirements, and to enable testers to test that the software system satisfies those requirements.
+### 2.5 Założenia i zależności
 
-> The specific requirements should:
-* Be uniquely identifiable.
-* State the subject of the requirement (e.g., system, software, etc.) and what shall be done.
-* Optionally state the conditions and constraints, if any.
-* Describe every input (stimulus) into the software system, every output (response) from the software system, and all functions performed by the software system in response to an input or in support of an output.
-* Be verifiable (e.g., the requirement realization can be proven to the customer's satisfaction)
-* Conform to agreed upon syntax, keywords, and terms.
+Założenia procesu tworzenia:
 
-### 3.1 External Interfaces
-> This subsection defines all the inputs into and outputs requirements of the software system. Each interface defined may include the following content:
-* Name of item
-* Source of input or destination of output
-* Valid range, accuracy, and/or tolerance
-* Units of measure
-* Timing
-* Relationships to other inputs/outputs
-* Screen formats/organization
-* Window formats/organization
-* Data formats
-* Command formats
-* End messages
+* Wykonanie aplikacji w okresie **nie przekraczającym** **dwóch miesięcy**
+* Spotkania dwa razy w tygodniu
+* Mały nacisk na systemy zarządzania projektem
+* Znaczny nacisk na systemy kontroli wersji
 
-#### 3.1.1 User interfaces
-Define the software components for which a user interface is needed. Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Details of the user interface design should be documented in a separate user interface specification.
+Zależności:
 
-Could be further divided into Usability and Convenience requirements.
+* Szablon aplikacji został wykorzystany z jednego z poprzednich projektów
+* Wykorzystanie bazy relacyjnej z powodu łatwiejszej konfiguracji
 
-#### 3.1.2 Hardware interfaces
-Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.
+### 2.6 Podział technologii
 
-#### 3.1.3 Software interfaces
-Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint.
+Poniżej przedstawia się podział wymagań technologii zależnie od działu:
 
-### 3.2 Functional
-> This section specifies the requirements of functional effects that the software-to-be is to have on its environment.
+| Dział                  | Technologia                 |
+| ---------------------- | --------------------------- |
+| Strona internetowa     | Razor Pages                 |
+| Baza danych            | SQL Server Express LocalDB  |
+| Architektura           | MVVM (Model-view-viewmodel) |
+| Kod                    | ASP.NET Core                |
+| System kontroli wersji | Git                         |
+
+## 3. Wymagania
+### 3.1 Interfejsy zewnętrzne
+#### 3.1.1 Interfejs użytkownika
+TODO: Layout.
+
+#### 3.1.2 Interfejs sprzętowy
+Komputer, telefon.
+
+#### 3.1.3 Interfejs programowy
+
+Od strony użytkownika:
+
+* Aktualna przeglądarka Google Chrome, Mozilla Firefox, Microsoft Edge, Opera bądź Safari
+
+Od strony serwera:
+
+* Baza danych
+  * SQL Server Express LocalDB
+
+### 3.2 Funkcjonalności
+* Podział na użytkowników
+* Kontrolowanie czasu pracy (rozpoczęcie, zakończenie)
+* Planowanie zadań, urlopów
+* Proste zestawienia przechowywanych informacji
 
 ### 3.3 Quality of Service
 > This section states additional, quality-related property requirements that the functional effects of the software should present.
