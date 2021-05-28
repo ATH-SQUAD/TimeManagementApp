@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using TimeManagementApp.App.DbModel;
 
 namespace TimeManagementApp.App.DBModels
 {
@@ -14,11 +15,10 @@ namespace TimeManagementApp.App.DBModels
     public class PersonModel
     {
         [BsonId]
-        [Column("ID")]
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Required]
-        public int Id { get; set; }
+        public int PersonId { get; set; }
         [Required]
         public string FirstName { get; set; }
         [Required]
@@ -30,10 +30,12 @@ namespace TimeManagementApp.App.DBModels
 
         [Required]
         [MinLength(8)]
-        public string Password;
+        public string Password { get; set; }
 
         [Required]
-        public string status;
+        public string Status { get; set; }
+
+        public List<TaskModel> TaskModels { get; set; }
 
     }
 }
