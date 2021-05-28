@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TimeManagementApp.App.DBModels;
 
 namespace TimeManagementApp.Database
 {
@@ -22,6 +23,9 @@ namespace TimeManagementApp.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<PersonModel>().
+                HasIndex(u => u.Login).
+                IsUnique();
             base.OnModelCreating(modelBuilder);
         }
     }
