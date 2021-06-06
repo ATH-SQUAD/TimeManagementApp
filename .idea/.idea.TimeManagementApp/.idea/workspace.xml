@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f101ea79-7a85-4bd1-aeeb-2e78d8711f1e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/TimeManagementApp/Specification/srs.md" beforeDir="false" afterPath="$PROJECT_DIR$/TimeManagementApp/Specification/srs.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TimeManagementApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TimeManagementApp/.idea/workspace.xml" afterDir="false" />
     </list>
     <list id="43d7d205-afad-417d-8ae6-3a674c458533" name="Added SRS template" comment="" />
     <list id="464515da-25ea-4e20-bbee-1b13f329e04b" name="Revert &quot;Added SRS template&quot;" comment="" />
@@ -82,7 +82,7 @@
       <workItem from="1621879988009" duration="1385000" />
       <workItem from="1621886855857" duration="2628000" />
       <workItem from="1622995092991" duration="222000" />
-      <workItem from="1622995671595" duration="285000" />
+      <workItem from="1622995671595" duration="615000" />
     </task>
     <task id="LOCAL-00001" summary="Added SRS template">
       <created>1621886911362</created>
