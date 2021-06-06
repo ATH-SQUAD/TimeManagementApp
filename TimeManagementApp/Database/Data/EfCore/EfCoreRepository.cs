@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 namespace TimeManagementApp.Database.Data.EFCore
 {
     public abstract class EfCoreRepository<TEntity, TContext> : IRepository<TEntity>
-        where TEntity : class, IEntity
-        where TContext : AppDbContext
+         where TEntity : class, IEntity
+         where TContext : AppDbContext
     {
         private readonly TContext _context;
 
@@ -48,7 +48,7 @@ namespace TimeManagementApp.Database.Data.EFCore
 
         public async Task<List<TEntity>> GetAll()
         {
-            return await _context.Set<TEntity>().ToListAsync();
+            return await _context.Set<TEntity>().AsNoTracking().ToListAsync();
         }
 
         public async Task<TEntity> Update(TEntity entity)

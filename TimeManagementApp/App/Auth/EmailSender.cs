@@ -1,37 +1,59 @@
-﻿//using System.Threading.Tasks;
-//using Microsoft.Extensions.Options;
-//using SendGrid;
-//using SendGrid.Helpers.Mail;
+﻿using System.Threading.Tasks;
+using MailKit.Net.Smtp;
+using Microsoft.Extensions.Options;
+using MimeKit;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 
-//namespace TimeManagementApp.App.Auth
-//{
-//    public class EmailSender : IEmailSender
-//    {
-//        public EmailSender(IOptions<AuthMessageSenderOptions> optionAccessor)
-//        {
-//            Options = optionAccessor.Value;
-//        }
+namespace TimeManagementApp.App.Auth
+{
+    public class EmailSender : IEmailSender
+    {
+        private readonly EmailConfiguration _emailConfig;
 
-//        public AuthMessageSenderOptions Options { get; set; }
-//        public Task SendEmailAsync(string email, string subject, string message)
-//        {
-//            return Execute(Options.SendGridKey, subject, message, email);
-//        }
+        public EmailSender(EmailConfiguration emailConfig)
+        {
+            _emailConfig = emailConfig;
+        }
 
-//        public Task Execute(string apiKey, string subject, string message, string email)
-//        {
-//            var client = new SendGridClient(apiKey);
-//            var msg = new SendGridMessage()
-//            {
-//                From = new EmailAddress("administrator@carbo.com.pl", Options.SendGridUser),
-//                Subject = subject,
-//                PlainTextContent = message,
-//                HtmlContent = message
-//            };
-//            msg.AddTo(new EmailAddress(email));
-//            msg.SetClickTracking(false, false);
+        private MimeMessage CreateEmailMessage(Message message)
+        {
+            MimeMessage emailMessage = new MimeMessage();
+            emailMessage.From.Add(new MailboxAddress(_emailConfig.UserName, _emailConfig.From));
+            emailMessage.To.AddRange(message.To);
+            emailMessage.Subject = message.Subject;
+            emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html) { Text = string.Format("<h2 style='color:red;'>{0}</h2>", message.Content) };
 
-//            return client.SendEmailAsync(msg);
-//        }
-//    }
-//}
+            return emailMessage;
+        }
+
+        public async Task SendEmailAsync(string email, Message message)
+        {
+            MimeMessage mailMessage = CreateEmailMessage(message);
+
+            await SendEmailAsync(mailMessage);
+        }
+
+        private async Task SendEmailAsync(MimeMessage mailMessage)
+        {
+            using SmtpClient client = new SmtpClient();
+            try
+            {
+                await client.ConnectAsync(_emailConfig.SmtpServer, _emailConfig.Port, true);
+                client.AuthenticationMechanisms.Remove("XOAUTH2");
+                await client.AuthenticateAsync(_emailConfig.UserName, _emailConfig.Password);
+                await client.SendAsync(mailMessage);
+            }
+            catch
+            {
+                // TO-DO: Log an error message or throw an exception, or both.
+                throw;
+            }
+            finally
+            {
+                await client.DisconnectAsync(true);
+                /*client.Dispose();*/
+            }
+        }
+    }
+}

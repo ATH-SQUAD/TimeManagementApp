@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 
 namespace TimeManagementApp.Database.Models
 {
-    public class ApplicationUser : IdentityUser
+    public class ApplicationRole : IdentityRole
     {
-        public string Firstname { get; set; }
-        public string Lastname { get; set; }
-        public string CreatedAt { get; set; }
-        public string UpdatedAt { get; set; }
+        public ApplicationRole() : base()
+        {
+        }
+
+        public ApplicationRole(string roleName) : base(roleName)
+        {
+        }
+
         public ICollection<ApplicationUserRole> UserRoles { get; set; }
     }
 }
