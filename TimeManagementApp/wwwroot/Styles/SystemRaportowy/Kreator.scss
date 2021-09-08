@@ -1,0 +1,277 @@
+﻿@import '../../lib/bootstrap/scss/bootstrap.scss';
+
+.text-shadow-light {
+    text-shadow: 1px 1px 2px #666;
+}
+
+.report-col {
+    position: relative;
+}
+
+.report-project {
+    width: 21.4cm;
+    height: calc(100vh - 70px);
+    box-sizing: content-box;
+    background: rgba(255, 255, 255, 0.5);
+    margin: 16px auto;
+    padding: 0.25cm;
+    overflow: auto !important;
+}
+
+.report-page {
+    position: relative;
+    font-size: 11pt;
+    width: 21cm;
+    height: 29.7cm;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: rgba(0,0,0,0.3) 0 0 5px 2px;
+    color: #222;
+}
+
+.kit-background {
+    background-color: $gray-650;
+}
+
+.focus-kit-obj, .focus-kit-tool {
+    background-color: #408000 !important;
+}
+
+.kit-obj, .kit-tool {
+    cursor: pointer;
+}
+
+.kit-obj:hover, .kit-tool:hover {
+    background-color: $gray-600;
+}
+
+.element-blocked {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+    user-select: none;
+}
+
+.dropdown-item-blocked {
+    pointer-events: none;
+    cursor: not-allowed;
+    user-select: none;
+    font-weight: bold !important;
+}
+
+hr {
+    margin: 0px;
+}
+
+#image-input {
+    display: none;
+}
+
+#kit-tab {
+    width: 100%;
+    border-bottom: none;
+}
+
+#kit-tab li {
+    width: 50%;
+}   
+
+#kit-tab span {
+    color: white;
+}
+
+#kit-tab .nav-link {
+    text-align: center;
+    font-size: 0.9rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+#kit-tab .nav-link.active {
+    background-color: transparent;
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
+    border-bottom: transparent;
+}
+
+#kit-tab .nav-link:hover, .nav-link:focus {
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+#objects-tab.active {
+    border-left: transparent;
+    border-right: 2px solid rgba(0, 0, 0, 0.1);
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#tools-tab.active {
+    border-right: transparent;
+    border-left: 2px solid rgba(0, 0, 0, 0.1);
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#font-size-kit-tool, #font-family-kit-tool {
+    background-color: $gray-600;
+    white-space: normal;
+}
+
+.dropdown-menu-scroll {
+    max-height: 240px;
+    overflow-y: auto;
+    min-width: 0rem;
+}
+
+.font-dropdown-menu {
+    color: white;
+    background-color: $gray-650;
+}
+
+.font-dropdown-menu > a {
+    background-color: $gray-650;
+}
+
+#narzedzia .dropdown-toggle::after {
+    position: absolute;
+    top: calc(50% - 1px);
+    right: 12px;
+}
+
+.ul-dropdown-source-data .dropdown-toggle::after {
+    position: absolute;
+    right: 12px;
+}
+
+.font-dropdown-menu > a:hover {
+    background-color: $gray-600;
+}
+
+.hover-font-dropdown-menu {
+    background-color: $gray-600 !important;
+}
+
+.dropdown-db-value a:hover {
+    color: white;
+    background-color: $primary;
+    cursor: pointer;
+}
+
+.data-col .list-group-item {
+    background-color: $gray-650;
+    color: white;
+    cursor: pointer !important;
+    display: flex;
+    align-items: center;
+    cursor: default !important;
+    border-width: 1px 0px 0px 0px !important;
+}
+
+.data-col .list-group-item:hover {
+    background-color: $gray-500;
+    color: white;
+}
+
+.data-col .list-group-item:focus {
+    background-color: $gray-500;
+    color: white;
+}
+
+.data-col .dane-item {
+    cursor: pointer !important;
+    border: unset;
+}
+
+.dane-icon {
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.dane-icon:hover {
+    cursor: pointer;
+}
+
+.add-icon {
+    color: lawngreen;
+}
+
+.add-icon:hover {
+    color: #ABFD5C; 
+}
+
+#parameter-modal .modal-header {
+    border-bottom: none;
+}
+
+#table-kreator-modal .modal-header {
+    border-bottom: none;
+}
+
+.invalid-feedback-appearance {
+    color: #dc3545;
+    font-size: 80%;
+    margin-top: 0.25rem;
+    width: 100%;
+}
+
+#images-select-list > li {
+    cursor: pointer;
+}
+
+.report-table thead > tr {
+    background-color: black;
+    color: white;
+}
+.report-table thead > tr {
+    background-color: black;
+    color: white;
+}
+
+.report-table thead th {
+    border: 1px solid white;
+    border-top:1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.report-table thead th:first-child {
+    border-left: 1px solid black;
+}
+
+.report-table thead th:last-child {
+    border-right: 1px solid black;
+}
+
+.report-table tbody > tr td {
+    border: 1px solid black;
+}
+
+.tb-time-column {
+    background-color: lightgray;
+}
+
+.td-bg-red {
+    background-color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,61 @@
+﻿@page
+@model TimeManagementApp.Pages.TimeManagement.Administracja.CreateRoleModel
+@{
+    ViewData["Title"] = "Dodaj nową role";
+    Layout = "~/Pages/Shared/_MainLayout.cshtml";
+}
+
+
+<section class="hold-transition register-page justify-content-start">
+    <div class="register-box">
+        <div class="register-logo mt-5">
+        </div>
+
+        <div class="card">
+            <div class="card-body register-card-body">
+
+                <form method="post">
+
+                    <br />
+                    <br />
+                    <div class="input-group">
+                        <input asp-for="CreateRole.Name" type="text" class="form-control" placeholder="Nazwa">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-users"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body" style="font-size:large">
+                        <div style="text-align:center">
+                            <h3>Uprawnienia grupy</h3>
+                        </div>
+                        @for (int i = 0; i < Model.ClaimView.Claims.Count; i++)
+                        {
+                            <div class="form-check m-1">
+                                <input type="hidden" asp-for="@Model.ClaimView.Claims[i].ClaimType" />
+                                <input asp-for="@Model.ClaimView.Claims[i].IsSelected" class="form-check-input" />
+                                <label class="form-check-label" asp-for="@Model.ClaimView.Claims[i].IsSelected">
+                                    @Model.ClaimView.Claims[i].ClaimType
+                                </label>
+                            </div>
+                        }
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                    </div>
+                    <div class="mb-3">
+                        <span asp-validation-for="CreateRole.Name" class="text-danger mb-3"></span>
+                    </div>
+                    <div class="col-4" style="text-align:center;/">
+                        <button type="submit"  class="btn btn-success btn-block">Utwórz</button>
+                    </div>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                </form>
+
+                <br />
+                <a asp-page="/TimeManagement/Administracja/Ustawienia" class="text-center">Powrót do listy</a>
+            </div>
+        </div>
+    </div>
+</section>

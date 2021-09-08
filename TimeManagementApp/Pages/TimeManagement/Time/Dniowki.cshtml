@@ -1,0 +1,121 @@
+﻿@page
+@model TimeManagementApp.Pages.TimeManagement.Time.DniowkiModel
+@{ ViewData["Title"] = "Czas Pracy";
+    Layout = "~/Pages/Shared/_MainLayout.cshtml"; }
+
+@inject Microsoft.AspNetCore.Identity.UserManager<TimeManagementApp.Database.Models.ApplicationUser> UserManager
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3" style="text-align:center">
+                            <!-- About Me Box -->
+                            <div class="card card-primary">
+                                <div class="card-header" style="background-color:#28a745;">
+                                    <h3 class="card-title">Twoje dane</h3>
+                                </div>
+                                <!-- /.card-header -->
+                                <form method="post">
+                                    <div class="input-group">
+                                        <input asp-for="DailyTimeModel.Date" type="date" class="form-control" placeholder="Data">
+                                        <div class="input-group-append">
+                                            <div class="input-group-text">
+                                                <span class="fas fa-envelope"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="input-group">
+                                        <input asp-for="DailyTimeModel.Job" type="text" class="form-control" placeholder="Zadanie">
+                                        <div class="input-group-append">
+                                            <div class="input-group-text">
+                                                <span class="fas fa-lock"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <div class="row">
+                                        <div class="input-group">
+                                            <input asp-for="DailyTimeModel.From" type="time" class="form-control" placeholder="Praca od">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="fas fa-lock"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="input-group">
+                                            <input asp-for="DailyTimeModel.To" type="time" class="form-control" placeholder="Praca do">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="fas fa-lock"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <button type="submit" class="btn btn-success btn-block">Zaloguj</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                        <div class="col-md-9">
+                            <div class="card">
+                                <div class="card-header p-2">
+
+
+
+                                </div>
+                                <div class="card-body">
+                                    <div class="tab-content">
+                                        <div class="active tab-pane" id="settings">
+                                            <form asp-action="UpdateUser" asp-controller="Users">
+                                            </form>
+                                        </div>
+                                    </div>
+                                    @*/.tab-content*@
+                                </div> @*/.card-body*@
+                            </div>
+                            @*/.card*@
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../dist/js/demo.js"></script>
+</body>
+</html>
+
+<script type="text/javascript">
+    $(function () {
+        let message = '@TempData["SuccessChangePwMessage"]'
+        if (message != '' && message != null) {
+            toastr.success("", message);
+        }
+    });
+</script>

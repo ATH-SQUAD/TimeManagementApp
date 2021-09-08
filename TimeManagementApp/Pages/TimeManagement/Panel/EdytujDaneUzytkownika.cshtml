@@ -1,0 +1,57 @@
+﻿@page
+@model TimeManagementApp.Pages.TimeManagement.UserPanel.EdytujDaneUzytkownikaModel
+@{
+    ViewData["Title"] = "EditUserData";
+    Layout = "~/Pages/Shared/_MainLayout.cshtml";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/Styles/TimeManagement/EditUserData.css" type="text/css" />
+}
+@section Scripts {
+    <script src="~/Scripts/TimeManagement/EditUserData.js" type="text/javascript"></script>
+}
+@inject Microsoft.AspNetCore.Identity.UserManager<TimeManagementApp.Database.Models.ApplicationUser> UserManager
+
+<section class="hold-transition register-page justify-content-start">
+    <div class="register-box">
+        <div class="register-logo mt-5">
+            <a href="../../index2.html"><b>Edytuj swoje dane</b></a>
+        </div>
+
+        <div class="card">
+            <div class="card-body register-card-body">
+
+                <form method="post">
+                    <div class="form-group">
+                        <input type="hidden" asp-for="@UserManager.GetUserAsync(User).Result.Id;" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="UpdateModel.Email" class="control-label">Email</label>
+                        <input type="text" asp-for="UpdateModel.Email" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="UpdateModel.FirstName" class="control-label">Imie</label>
+                        <input type="text" asp-for="UpdateModel.FirstName" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="UpdateModel.LastName" class="control-label">Nazwisko</label>
+                        <input type="text" asp-for="UpdateModel.LastName" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="UpdateModel.PhoneNumber" class="control-label">Numer telefonu</label>
+                        <input type="text" asp-for="UpdateModel.PhoneNumber" class="form-control" />
+                    </div>
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <input type="submit" asp-page-handler="UpdateUser" value="Save" class="btn btn-success" />
+                    </div>
+                </form>
+
+                <a asp-page="/TimeManagement/Panel/TwojProfil" class="text-center">Powrot do panelu</a>
+            </div>
+            <!-- /.form-box -->
+        </div><!-- /.card -->
+    </div>
+    <!-- /.register-box -->
+</section>
+

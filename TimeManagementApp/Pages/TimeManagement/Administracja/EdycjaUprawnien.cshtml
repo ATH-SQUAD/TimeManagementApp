@@ -1,0 +1,49 @@
+﻿@page
+@model TimeManagementApp.Pages.TimeManagement.Administracja.EdycjaUprawnienModel
+@{
+    ViewData["Title"] = "Zmiana uprawnień";
+    Layout = "~/Pages/Shared/_MainLayout.cshtml";
+}
+
+
+
+<section class="hold-transition register-page justify-content-start">
+    <div class="register-box">
+        <div class="register-logo mt-5">
+            <a href="../../index2.html"><b>Zmień uprawnienia ról</b></a>
+        </div>
+        <div class="card">
+            <div class="card-body register-card-body">
+
+
+                <form method="post">
+                        <div class="card-body" style="font-size:large">
+                            @for (int i = 0; i < Model.ClaimView.Claims.Count; i++)
+                            {
+                                <div class="form-check m-1">
+                                    <input type="hidden" asp-for="@Model.ClaimView.Claims[i].ClaimType" />
+                                    <input asp-for="@Model.ClaimView.Claims[i].IsSelected" class="form-check-input" />
+                                    <label class="form-check-label" asp-for="@Model.ClaimView.Claims[i].IsSelected">
+                                        @Model.ClaimView.Claims[i].ClaimType
+                                    </label>
+                                </div>
+                            }
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                        </div>
+                            <div style="text-align:center">
+                                <input type="submit" value="Zapisz" class="btn btn-primary btn-success"
+                                       style="width:auto" />
+                            </div>
+                            <br />
+                            <div>
+                                <a asp-page="/TimeManagement/Administracja/Ustawienia" class="text-center">Powrot do panelu</a>
+                            </div>
+                </form>
+
+
+            </div>
+            <!-- /.form-box -->
+        </div><!-- /.card -->
+    </div>
+    <!-- /.register-box -->
+</section>

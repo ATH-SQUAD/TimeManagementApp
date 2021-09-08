@@ -1,0 +1,109 @@
+﻿@page
+@model TimeManagementApp.Pages.TimeManagement.Administracja.UzytkownicyModel
+@{
+    ViewData["Title"] = "Użytkownicy";
+    Layout = "~/Pages/Shared/_MainLayout.cshtml";
+}
+
+
+@section Styles
+{
+    <link rel="stylesheet" href="~/Styles/TimeManagement/Administracja/Uzytkownicy.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" />
+}
+
+@section Scripts
+{
+    <script type="text/javascript" charset="utf8" src="~/Scripts/TimeManagement/Administracja.js"></script>
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+}
+
+
+<table id="myTable" class="display" style="div.dataTables_wrapper">
+    <thead>
+        <tr>
+            <th>
+                <label asp-for="Users.FirstOrDefault().Firstname">Imię</label>
+            </th>
+            <th>
+                <label asp-for="Users.FirstOrDefault().Lastname">Nazwisko</label>
+            </th>
+            <th>
+                <label asp-for="Users.FirstOrDefault().Email"></label>
+            </th>
+            <th>
+                <label asp-for="Roles.FirstOrDefault().UserRoles">Rola użytkownika</label>
+            </th>
+            <th>
+                <label asp-for="Users.FirstOrDefault().EmailConfirmed">Aktywne konto</label>
+            </th>
+            <th>
+                <p></p>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Users)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(m => item.Firstname)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Lastname)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Email)
+                </td>
+                <td>
+                    @foreach (var userRole in item.UserRoles)
+                    {
+                        <p>@Html.DisplayFor(model => userRole.Role.Name)&nbsp;</p>
+                    }
+                </td>
+                <td style="text-align:center;">
+                    @Html.CheckBoxFor(m => item.EmailConfirmed, new
+                    {
+                        onclick = "Activate()",
+                        data_userId = item.Id,
+                    })
+
+                </td>
+                <td>
+                    <a asp-page="./EdytujUzytkownika" class="btn @*fas fa-user*@ btn-primary" asp-route-id="@item.Id"> Edytuj</a>
+                    <a asp-page="./Usun" class="btn btn-danger " asp-route-id="@item.Id">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="btn-group-lg" style="text-align:right; margin-right:200px; bottom:20%;  ">
+    <a asp-page="/TimeManagement/Administracja/UtworzUzytkownika" class="btn btn-lg btn-primary btn">Dodaj nowego użytkownika</a>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        let message = '@TempData["SuccessEditMessage"]'
+        if (message != '' && message != null) {
+            toastr.success("", message);
+        }
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        let message = '@TempData["SuccessDeleteMessage"]'
+        if (message != '' && message != null) {
+            toastr.success("", message);
+        }
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        let message = '@TempData["SuccessCreationMessage"]'
+        if (message != '' && message != null) {
+            toastr.success("", message);
+        }
+    });
+</script>

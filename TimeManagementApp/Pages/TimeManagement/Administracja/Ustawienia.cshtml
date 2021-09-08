@@ -1,0 +1,79 @@
+﻿@page
+@model TimeManagementApp.Pages.TimeManagement.Administracja.UstawieniaModel
+@{
+    ViewData["Title"] = "Edytor ról";
+    Layout = "~/Pages/Shared/_MainLayout.cshtml";
+}
+@section Styles
+{
+    <link rel="stylesheet" href="~/Styles/TimeManagement/Administracja/Uzytkownicy.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" />
+}
+@section Scripts
+{
+    <script type="text/javascript" charset="utf8" src="~/Scripts/TimeManagement/Administracja.js"></script>
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+}
+@inject Microsoft.AspNetCore.Identity.RoleManager<TimeManagementApp.Database.Models.ApplicationRole> _roleManager
+
+<table id="myTable" class="display" style="dataTables_wrapper">
+    <thead>
+        <tr>
+            <th>
+                <label asp-for="Roles.FirstOrDefault().Id">Nazwa grupy</label>
+            </th>
+            <th>
+                <label asp-for="Roles.FirstOrDefault().Name">Nazwa grupy</label>
+            </th>
+            <th>
+                <p></p>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Roles)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(m => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Name)
+                </td>
+                <td>
+                    <a asp-page="./EdycjaUprawnien" class="btn @*fas fa-user*@ btn-primary" asp-route-id="@item.Id">Uprawnienia</a>
+                    <a asp-page="./UsunRole" class="btn btn-danger " asp-route-id="@item.Id">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="btn-group-lg" style="text-align:right; margin-right:200px; bottom:20%;  ">
+    <a asp-page="/TimeManagement/Administracja/TworzenieRoli" class="btn btn-lg btn-primary btn">Dodaj nową role</a>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        let message = '@TempData["SuccessClaimAdd"]'
+        if (message != '' && message != null) {
+            toastr.success("", message);
+        }
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        let message = '@TempData["SuccessRoleDelete"]'
+        if (message != '' && message != null) {
+            toastr.success("", message);
+        }
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        let message = '@TempData["SuccessRoleCreation"]'
+        if (message != '' && message != null) {
+            toastr.success("", message);
+        }
+    });
+</script>

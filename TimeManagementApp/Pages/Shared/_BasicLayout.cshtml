@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portal | @ViewData["Title"]</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.5/plugins/fontawesome-free/css/all.min.css" type="text/css" />
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.5/plugins/icheck-bootstrap/icheck-bootstrap.min.css" type="text/css" />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.5/dist/css/adminlte.min.css" type="text/css" />
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" type="text/css" />
+    <!-- Toastr -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.5/plugins/toastr/toastr.min.css" type="text/css" />
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="~/lib/bootstrap/scss/bootstrap.scss" type="text/scss" />
+    <!-- basic.css -->
+    <link rel="stylesheet" href="~/Styles/Shared/basic.css" type="text/css" />
+    <!-- Styles for rendered Page -->
+    @RenderSection("Styles", false)
+
+    <!-- jQuery -->
+    <script src="~/AdminLTE-3.0.5/plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.12.1 -->
+    <script src="~/AdminLTE-3.0.5/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Toastr -->
+    <script src="~/AdminLTE-3.0.5/plugins/toastr/toastr.min.js"></script>
+</head>
+
+<body>
+    @RenderBody()
+
+    <!-- Bootstrap 4 -->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Validation Scripts -->
+    <partial name="_ValidationScriptsPartial" />
+    <!-- basic.js -->
+    <script src="~/Scripts/Shared/basic.js"></script>
+    <!-- Scripts for rendered Page -->
+    @RenderSection("Scripts", false)
+</body>
+
+</html>

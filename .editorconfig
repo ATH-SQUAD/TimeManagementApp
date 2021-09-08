@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# MVC1002: Route attributes cannot be applied to page handler methods.
+dotnet_diagnostic.MVC1002.severity = error

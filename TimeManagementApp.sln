@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.31313.79
+VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeManagementApp", "TimeManagementApp.csproj", "{0F71D4E0-0AA4-4C9D-BBC7-2CBEF0556D0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeManagementApp", "TimeManagementApp\TimeManagementApp.csproj", "{BA19B55A-4C04-4D76-9E05-AB80D521C4EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0F71D4E0-0AA4-4C9D-BBC7-2CBEF0556D0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0F71D4E0-0AA4-4C9D-BBC7-2CBEF0556D0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0F71D4E0-0AA4-4C9D-BBC7-2CBEF0556D0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0F71D4E0-0AA4-4C9D-BBC7-2CBEF0556D0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA19B55A-4C04-4D76-9E05-AB80D521C4EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA19B55A-4C04-4D76-9E05-AB80D521C4EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA19B55A-4C04-4D76-9E05-AB80D521C4EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA19B55A-4C04-4D76-9E05-AB80D521C4EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D27FD0A5-297D-417D-AE6C-FCA7B1EBEE89}
+		SolutionGuid = {B2D91308-CA91-4325-B55F-81812152E63E}
 	EndGlobalSection
 EndGlobal

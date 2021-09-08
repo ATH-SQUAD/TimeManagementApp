@@ -1,0 +1,109 @@
+﻿@page
+@model TimeManagementApp.Pages.TimeManagement.Administracja.NewUserModel
+@{
+    ViewData["Title"] = "Dodaj nowego użytkownika";
+    Layout = "~/Pages/Shared/_MainLayout.cshtml";
+
+}
+
+<section class="hold-transition register-page justify-content-start">
+    <div class="register-box">
+        <div class="register-logo mt-5">
+        </div>
+
+        <div class="card">
+            <div class="card-body register-card-body">
+                <p class="login-box-msg">Stwórz nowe konto</p>
+
+                <form method="post">
+
+                    <div class="input-group">
+                        <input asp-for="AddModel.Firstname" type="text" class="form-control" placeholder="Imię">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <span asp-validation-for="AddModel.Firstname" class="text-danger mb-3"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <input asp-for="AddModel.Lastname" type="text" class="form-control" placeholder="Nazwisko">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <span asp-validation-for="AddModel.Lastname" class="text-danger"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <input asp-for="AddModel.Email" type="email" class="form-control" placeholder="Email">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <span asp-validation-for="AddModel.Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <input asp-for="AddModel.Password" type="password" class="form-control" placeholder="Hasło">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <span asp-validation-for="AddModel.Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <input asp-for="AddModel.RepeatPassword" type="password" class="form-control" placeholder="Powtórz hasło">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <span asp-validation-for="AddModel.RepeatPassword" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="roleModel.Name" class="control-label">Wybierz Role</label>
+                        <br />
+                        <select asp-for="roleModel.Name" asp-items="(SelectList)@ViewData["Name"]"><option value="">-- Wybierz role --</option></select>
+
+                    </div>
+
+                    <br />
+
+                    <div class="row">
+                        <div class="col-8">
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-success btn-block" style="float:left">Utwórz</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                </form>
+
+                <br />
+                <a asp-page="/TimeManagement/Administracja/Uzytkownicy" class="text-center">Powrót do listy</a>
+            </div>
+            <!-- /.form-box -->
+        </div><!-- /.card -->
+    </div>
+    <!-- /.register-box -->
+</section>
+
