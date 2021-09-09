@@ -1,16 +1,14 @@
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using TimeManagementApp.Database.Models;
+using TimeManagementApp.Pages.Shared;
 
-namespace RaportBuilder.Pages
+namespace TimeManagementApp.Pages
 {
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public class ErrorModel : PageModel
+    public class ErrorModel : BasePageModel
     {
         public string RequestId { get; set; }
 
@@ -18,7 +16,8 @@ namespace RaportBuilder.Pages
 
         private readonly ILogger<ErrorModel> _logger;
 
-        public ErrorModel(ILogger<ErrorModel> logger)
+        public ErrorModel(SignInManager<ApplicationUser> signInManager, ILogger<ErrorModel> logger) 
+            : base(signInManager)
         {
             _logger = logger;
         }
@@ -27,5 +26,7 @@ namespace RaportBuilder.Pages
         {
             RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
         }
+
+
     }
 }

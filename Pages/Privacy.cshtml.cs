@@ -1,24 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
+using TimeManagementApp.Database.Models;
+using TimeManagementApp.Pages.Shared;
 
-namespace RaportBuilder.Pages
+namespace TimeManagementApp.Pages
 {
-    public class PrivacyModel : PageModel
+    public class PrivacyModel : BasePageModel
     {
         private readonly ILogger<PrivacyModel> _logger;
 
-        public PrivacyModel(ILogger<PrivacyModel> logger)
+        public PrivacyModel(SignInManager<ApplicationUser> signInManager, ILogger<PrivacyModel> logger)
+            : base(signInManager)
         {
             _logger = logger;
-        }
-
-        public void OnGet()
-        {
         }
     }
 }
