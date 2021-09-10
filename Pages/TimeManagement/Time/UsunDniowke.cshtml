@@ -1,0 +1,27 @@
+﻿@page
+@model TimeManagementApp.Pages.TimeManagement.Time.UsunDniowkeModel
+@{ ViewData["Title"] = "Usuń dniówke";
+                Layout = "~/Pages/Shared/_MainLayout.cshtml"; }
+
+<h3>@ViewData["Message"]</h3>
+<section class="hold-transition register-page justify-content-start" style="text-align:center;">
+    <div class="register-box">
+        <div class="register-logo mt-5">
+            <a href="../../index2.html"><b></b></a>
+        </div>
+        <div class="card">
+            <div class="card-body register-card-body">
+
+                <h3>Czy na pewno chcesz usunąć?</h3>
+
+                <form method="post">
+                    <input type="hidden" asp-for="DeleteModel.Id" />
+                    <input type="submit" value="Tak" class="btn btn-success" />
+                    <input type="button" class="btn btn-danger" onclick="history.go(-1)" value="Nie" />
+                </form>
+            </div>
+            <!-- /.form-box -->
+        </div><!-- /.card -->
+    </div>
+    <!-- /.register-box -->
+</section>

@@ -1,0 +1,65 @@
+﻿@page
+@model TimeManagementApp.Pages.TimeManagement.ForgotPasswordModel
+@{
+    ViewData["Title"] = "ForgotPassword";
+    Layout = "~/Pages/Shared/_BasicLayout.cshtml";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/Styles/TimeManagement/ForgotPassword.css" type="text/css" />
+}
+@section Scripts {
+    <script src="~/Scripts/TimeManagement/ForgotPassword.js" type="text/javascript"></script>
+}
+
+
+<section class="hold-transition login-page justify-content-start">
+    <div class="login-box">
+        <div class="login-logo mt-5">
+            <a href="../../index2.html"><b>Portal pracownika</b></a>
+        </div>
+
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">Zaloguj się</p>
+
+                <form method="post">
+
+                    <div class="input-group">
+                        <input asp-for="ResetLink.Email" type="text" class="form-control" placeholder="Email">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <span asp-validation-for="ResetLink.Email" class="text-danger"></span>
+                    </div>
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="icheck-primary">
+                                <button type="submit" class="btn btn-success btn-block" @*onclick="javascript:alert('Link do zmiany hasła został wysłany na podany email')"*@>Wyślij</button>
+                            </div>
+
+
+                        </div>
+                        <!-- /.col -->
+                        <!-- /.col -->
+                    </div>
+                </form>
+
+                <p class="mb-1">
+                    <a asp-page="/TimeManagement/Logowanie">Wróc do logowania</a>
+                </p>
+                <p class="mb-1">
+                    <a asp-page="/TimeManagement/Rejestracja">Nie mam konta</a>
+                </p>
+            </div>
+            <!-- /.login-card-body -->
+        </div>
+    </div>
+    <!-- /.login-box -->
+</section>

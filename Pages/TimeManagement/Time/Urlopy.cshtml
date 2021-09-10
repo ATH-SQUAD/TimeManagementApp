@@ -1,0 +1,153 @@
+﻿@page
+@model TimeManagementApp.Pages.TimeManagement.Time.UrlopyModel
+@{ ViewData["Title"] = "Czas Pracy";
+    Layout = "~/Pages/Shared/_MainLayout.cshtml"; }
+
+@inject Microsoft.AspNetCore.Identity.UserManager<TimeManagementApp.Database.Models.ApplicationUser> UserManager
+@section Styles
+{
+    <link rel="stylesheet" href="~/Styles/TimeManagement/Administracja/Uzytkownicy.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" />
+}
+
+@section Scripts
+{
+    <script type="text/javascript" charset="utf8" src="~/Scripts/TimeManagement/Administracja.js"></script>
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+}
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3" style="text-align:center">
+                            <!-- About Me Box -->
+                            <div class="card card-primary" style="align-items: center;">
+                                <div class="card-header" style="background-color:#28a745;">
+                                    <h3 class="card-title">Podaj datę i godziny</h3>
+                                </div>
+                                <!-- /.card-header -->
+                                <form method="post" style="align-items: center;">
+                                    <div class="input-group">
+                                        <label style="place-self:center">Od: </label>
+                                        <input asp-for="VacationTimeModel.DateFrom" type="date" label="Od" class="form-control" placeholder="Od">
+                                    </div>
+                                    <div class="input-group">
+                                        <label style="place-self:center">Do: </label>
+                                        <input asp-for="VacationTimeModel.DateTo" type="date" class="form-control" placeholder="Do">
+                                    </div>
+                                    <div class="input-group">
+                                        <input asp-for="VacationTimeModel.Reason" type="text" class="form-control" placeholder="Powód">
+                                    </div>
+                                    </br>
+                                    <div class="col-4" style="min-width: fit-content; display: table-cell ">
+                                        <button type="submit" width:max-content, min-width: fit-content" class="btn btn-success btn-block">Dodaj urlop</button>
+                                    </div>
+                                </form>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                        <div class="col-md-9">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="tab-content">
+                                        <div class="active tab-pane" id="settings">
+                                            <table id="myTable" class="display" style="div.dataTables_wrapper">
+                                                <thead>
+                                                    <tr>
+                                                        <th>
+                                                            <label asp-for="Times.FirstOrDefault().Person">Pracownik</label>
+                                                        </th>
+                                                        <th>
+                                                            <label asp-for="Times.FirstOrDefault().DateFrom">Data</label>
+                                                        </th>
+                                                        <th>
+                                                            <label asp-for="Times.FirstOrDefault().DateTo">Od</label>
+                                                        </th>
+                                                        <th>
+                                                            <label asp-for="Times.FirstOrDefault().Reason">Do</label>
+                                                        </th>
+                                                        <th>
+                                                            <p></p>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var item in Model.Times)
+                                                    {
+                                                        <tr>
+
+                                                            <td>
+                                                                @Html.DisplayFor(m => item.Person)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(m => item.DateFrom)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(m => item.DateTo)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(m => item.Reason)
+                                                            </td>
+                                                            <td>
+                                                                <a asp-page="./UsunUrlop" class="btn btn-danger " asp-route-id="@item.Id">Usuń</a>
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    @*/.tab-content*@
+                                </div> @*/.card-body*@
+                            </div>
+                            @*/.card*@
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../dist/js/demo.js"></script>
+</body>
+</html>
+
+<script type="text/javascript">
+    $(function () {
+        let message = '@TempData["SuccessCreationMessage"]'
+        if (message != '' && message != null) {
+            toastr.success("", message);
+        }
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        let message = '@TempData["SuccessDeleteMessage"]'
+        if (message != '' && message != null) {
+            toastr.success("", message);
+        }
+    });
+</script>

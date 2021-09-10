@@ -1,0 +1,94 @@
+﻿@page
+@model TimeManagementApp.Pages.TimeManagement.LogowanieModel
+@{
+    ViewData["Title"] = "Logowanie";
+    Layout = "~/Pages/Shared/_BasicLayout.cshtml";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/Styles/TimeManagement/Logowanie.css" type="text/css" />
+}
+@section Scripts {
+    <script src="~/Scripts/TimeManagement/Logowanie.js" type="text/javascript"></script>
+}
+
+<section id="logowanie" class="hold-transition login-page justify-content-start">
+    <div class="login-box">
+        <div class="login-logo mt-5">
+            <a href="../../index2.html"><b>Portal pracownika</b></a>
+        </div>
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">Zaloguj się</p>
+                <form method="post">
+                    <div class="input-group">
+                        <input asp-for="LoginViewModel.Email" type="text" class="form-control" placeholder="Email">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <span asp-validation-for="LoginViewModel.Email" class="text-danger"></span>
+                    </div>
+                    <div class="input-group">
+                        <input asp-for="LoginViewModel.Password" type="password" class="form-control" placeholder="Hasło">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <span asp-validation-for="LoginViewModel.Password" class="text-danger"></span>
+                    </div>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="icheck-primary">
+                                <input asp-for="LoginViewModel.RememberMe" type="checkbox" id="remember">
+                                <label for="remember">
+                                    Pamiętaj mnie
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-success btn-block">Zaloguj</button>
+                        </div>
+                    </div>
+                </form>
+                <p class="mb-1">
+                    <a href="/TimeManagement/Przypomnienie">Zapomniałem hasła</a>
+                </p>
+                <p class="mb-1">
+                    <a asp-page="/TimeManagement/Rejestracja">Nie mam swojego konta</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    $(function () {
+        let message = '@TempData["SuccessRegistrationMessage"]'
+        if (message != '' && message != null) {
+            toastr.success("", message);
+        }
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        let message = '@TempData["SuccessSendMessage"]'
+        if (message != '' && message != null) {
+            toastr.success("", message);
+        }
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        let message = '@TempData["ResetPassMessage"]'
+        if (message != '' && message != null) {
+            toastr.success("", message);
+        }
+    });
+</script>

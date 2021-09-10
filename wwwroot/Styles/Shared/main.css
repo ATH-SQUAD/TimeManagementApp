@@ -1,0 +1,52 @@
+﻿body {
+    overflow-x: hidden;
+}
+
+#sidebar-nav {
+    position: static;
+    min-height: inherit;
+}
+
+#sidebar-ul {
+    position: static;
+    min-height: 100%;
+}
+
+#logout-button {
+    position: absolute;
+    bottom: 0;
+    width: 93.6%;
+}
+
+.btn-orange {
+    color: #fff;
+    background-color: #e68a00;
+    border-color: #e68a00;
+    box-shadow: none;
+}
+
+.btn-orange:hover {
+    color: #fff;
+    background-color: #cc7a00;
+    border-color: #b36b00;
+}
+
+.btn-red {
+    color: #fff;
+    background-color: #ff3333;
+    border-color: #ff1a1a;
+    box-shadow: none;
+}
+
+.btn-red:hover {
+    color: #fff;
+    background-color: #cc0000;
+    border-color: #b30000;
+}
+
+.ttp:hover {
+    text-align: center;
+}
+
+
+

@@ -1,0 +1,117 @@
+﻿@page
+@model TimeManagementApp.Pages.TimeManagement.RejestracjaModel
+@{
+    ViewData["Title"] = "Rejestracja";
+    Layout = "~/Pages/Shared/_BasicLayout.cshtml";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/Styles/TimeManagement/Rejestracja.css" type="text/css" />
+}
+@section Scripts {
+    <script src="~/Scripts/TimeManagement/Rejestracja.js" type="text/javascript"></script>
+}
+
+<section class="hold-transition register-page justify-content-start">
+    <div class="register-box">
+        <div class="register-logo mt-5">
+            <a href="../../index2.html"><b>Portal pracownika</b></a>
+        </div>
+
+        <div class="card">
+            <div class="card-body register-card-body">
+                <p class="login-box-msg">Stwórz nowe konto</p>
+
+                <form method="post">
+
+                    <div class="input-group">
+                        <input asp-for="RegisterViewModel.Firstname" type="text" class="form-control" placeholder="Imię">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <span asp-validation-for="RegisterViewModel.Firstname" class="text-danger mb-3"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <input asp-for="RegisterViewModel.Lastname" type="text" class="form-control" placeholder="Nazwisko">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <span asp-validation-for="RegisterViewModel.Lastname" class="text-danger"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <input asp-for="RegisterViewModel.Email" type="email" class="form-control" placeholder="Email">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <span asp-validation-for="RegisterViewModel.Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <input asp-for="RegisterViewModel.Password" type="password" class="form-control" placeholder="Hasło">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <span asp-validation-for="RegisterViewModel.Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <input asp-for="RegisterViewModel.RepeatPassword" type="password" class="form-control" placeholder="Powtórz hasło">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <span asp-validation-for="RegisterViewModel.RepeatPassword" class="text-danger"></span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="icheck-primary">
+                                <input asp-for="RegisterViewModel.AcceptRules" type="checkbox" id="acceptRules">
+                                <label for="acceptRules">
+                                    Zapoznałem się z <a href="#">zasadami</a> i je akceptuję
+                                </label>
+                            </div>
+                            <div class="mb-3">
+                                <span asp-validation-for="RegisterViewModel.AcceptRules" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-success btn-block">Utwórz</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                </form>
+
+                <a asp-page="/TimeManagement/Logowanie" class="text-center">Mam już swoje konto</a>
+            </div>
+            <!-- /.form-box -->
+        </div><!-- /.card -->
+    </div>
+    <!-- /.register-box -->
+</section>
+
+
+

@@ -1,0 +1,186 @@
+﻿@page
+@model TimeManagementApp.Pages.TimeManagement.Administracja.EditModel
+@{
+    ViewData["Title"] = "Edytuj";
+    Layout = "~/Pages/Shared/_MainLayout.cshtml";
+}
+@inject Microsoft.AspNetCore.Identity.UserManager<TimeManagementApp.Database.Models.ApplicationUser> UserManager
+
+
+<style>
+    .card-header .fa {
+        transition: .3s transform ease-in-out;
+    }
+
+    .card-header .collapsed .fa {
+        transform: rotate(90deg);
+    }
+</style>
+<h3>@ViewData["Message"]</h3>
+<section class="hold-transition register-page justify-content-start">
+    <div class="register-box">
+        <div class="register-logo mt-5">
+            <a href="../../index2.html"><b>Edytuj dane</b></a>
+        </div>
+        <div class="card">
+            <div class="card-body register-card-body">
+
+                <form method="post">
+                    <div id="accordion">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <a class="d-block" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Edytuj Dane Użytkownika
+                                    </a>
+                                </h5>
+                            </div>
+
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">
+
+                                    <div class="input-group">
+                                        <input asp-for="edit.Email" type="email" class="form-control" placeholder="Email">
+                                        <div class="input-group-append">
+                                            <div class="input-group-text">
+                                                <span class="fas fa-envelope"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <span asp-validation-for="edit.Email" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="input-group">
+                                        <input asp-for="edit.FirstName" type="text" class="form-control" placeholder="Imię">
+                                        <div class="input-group-append">
+                                            <div class="input-group-text">
+                                                <span class="fas fa-user"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <span asp-validation-for="edit.FirstName" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="input-group">
+                                        <input asp-for="edit.LastName" type="text" class="form-control" placeholder="Nazwisko">
+                                        <div class="input-group-append">
+                                            <div class="input-group-text">
+                                                <span class="fas fa-user"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <span asp-validation-for="edit.LastName" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="input-group">
+                                        <input asp-for="edit.PhoneNumber" type="text" class="form-control" placeholder="Numer Telefonu">
+                                        <div class="input-group-append">
+                                            <div class="input-group-text">
+                                                <span class="fas fa-phone"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <span asp-validation-for="edit.PhoneNumber" class="text-danger"></span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <a class="d-block" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Zmiana hasła
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div id="collapse-example2" class="collapse show" aria-labelledby="heading-example">
+                                        <div class="input-group">
+                                            <input asp-for="edit.NewPassword" type="password" class="form-control" placeholder="Nowe hasło">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="fas fa-lock"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <span asp-validation-for="edit.NewPassword" class="text-danger"></span>
+                                        </div>
+                                        <div class="input-group">
+                                            <input asp-for="edit.ConfirmPassword" type="password" class="form-control" placeholder="Powtórz hasło">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="fas fa-lock"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <span asp-validation-for="edit.ConfirmPassword" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h5 class="mb-0">
+                                    <a class="d-block" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Zmiana Roli
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                <div class="card-body" style="text-align:center;">
+                                    <div class="form-group">
+                                        <label asp-for="roleModel.Name" class="control-label">Wybierz Role</label>
+                                        <br />
+                                        <select asp-for="roleModel.Name" asp-items="(SelectList)@ViewData["Name"]"><option value="">-- Wybierz role --</option></select>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingFour">
+                                <h5 class="mb-0">
+                                    <a class="d-block" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                                        Aktywacja uzytkownika
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                                <div class="card-body">
+                                    @if (User.IsInRole("Admin") || (User.IsInRole("Master")))
+                                    {
+                                        <div class="col-sm-12" style="text-align:center">
+                                            <label asp-for="edit.ActiveAccount" class="control-label">Aktywuj konto</label>
+                                            <input type="checkbox" asp-for="edit.ActiveAccount" class="form-control" />
+                                        </div>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <br />
+                    <div class="form-group" style="text-align:center;">
+                        <input type="submit" value="Save" class="btn btn-success" />
+                    </div>
+                </form>
+
+                <a asp-page="/TimeManagement/Administracja/Uzytkownicy" class="text-center">Powrot do panelu</a>
+            </div>
+            <!-- /.form-box -->
+        </div><!-- /.card -->
+    </div>
+    <!-- /.register-box -->
+</section>
+
