@@ -11,11 +11,6 @@ Autorzy:
 
 26-05-2021
 
-Spis treści
-=================
-
-[TOC]
-
 ## 1. Wstęp
 ### 1.1 Cel dokumentu
 Celem specyfikacji jest przedstawienie podstawowych założeń i informacji na temat tworzonego projektu.
@@ -35,11 +30,7 @@ Podstawowe funkcjonalności (wyjaśnione później):
 
 Dla ujednolicenia nazwa ***projektu*** będzie podawana w języku angielskim - ***Time management application***.
 
-### 1.4 Bibliografia
-
-<!-- TODO: Uzupełnić o linki do kluczowych dokumentacji @rvshu13 -->
-
-### 1.5 Przegląd dokumentu
+### 1.4 Przegląd dokumentu
 Specyfikacja zawierać będzie opis założeń, funkcjonalności i wykorzystywanych technologii.
 
 ## 2. Przegląd projektu
@@ -111,7 +102,7 @@ Poniżej przedstawia się podział wymagań technologii zależnie od działu:
 ## 3. Wymagania
 ### 3.1 Interfejsy zewnętrzne
 #### 3.1.1 Interfejs użytkownika
-<!-- TODO: Wykonać wireframe w Figmie @rvshu13 -->
+Interfejs użytkownika oparty jest o [AdminLTE Template](https://adminlte.io/).
 
 #### 3.1.2 Interfejs sprzętowy
 Komputer, telefon.
@@ -135,7 +126,8 @@ Od strony serwera:
 
 ### 3.3 Jakość usług
 #### 3.3.1 Bezpieczeństwo
-* Brak rejestracji - tworzenie użytkowników, ich dostępem do aplikacji i rolami będzie zarządzał Administrator
+* *Brak rejestracji - tworzenie użytkowników, ich dostępem do aplikacji i rolami będzie zarządzał Administrator*
+  * Zmiana założeń
 * Logowanie
 
 #### 3.3.2 Niezawodność
@@ -149,15 +141,16 @@ Od strony serwera:
 Nie planowany jest kreator instalacyjny - projekt będzie możliwy do skompilowania według instrukcji przedstawionych w *README.md*.
 
 #### 3.4.7 Termin końcowy
-Przewidywany termin oddania nie przekracza 04-07-2021.
+Przewidywany termin oddania nie przekracza 15-09-2021.
 
 #### 3.4.8 Proof of Concept
-Zależnie od poziomu zaawansowania ta sekcja będzie uzupełniona wersją, która zostanie przyjęta jako PoC projektu.
+Wersja z dnia 10-09-2021 zawiera znaczną większość opisanych wyżej funkcjonalności.
+
+Wyjątki:
+
+* Brak zestawień (wyłącznie podstawowe informacje)
+* Możliwość rejestracji przez użytkownika
 
 ## 4. Załączniki
 
-<!-- TODO: Zmienić odnośniki po uaktualnieniu struktury repozytorium @rvshu13 -->
-
-* Repozytorium --> https://github.com/ATH-SQUAD/TimeManagementApp/tree/master/TimeManagementApp
-
-* README.md --> https://github.com/ATH-SQUAD/TimeManagementApp/blob/master/TimeManagementApp/README.md
+* Repozytorium --> https://github.com/ATH-SQUAD/TimeManagementApp/
