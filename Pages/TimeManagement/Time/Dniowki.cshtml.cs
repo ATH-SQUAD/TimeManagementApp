@@ -48,7 +48,7 @@ namespace TimeManagementApp.Pages.TimeManagement.Time
         }
         public async Task<IActionResult> OnPost() 
         {
-            DailyTimeModel.WorkTime = DailyTimeModel.To.Hours - DailyTimeModel.From.Hours;
+            //DailyTimeModel.WorkTime = DailyTimeModel.To.Hours - DailyTimeModel.From.Hours;
             var userName = User.Identity.Name;
             var toAdd = new DailyTime()
             {
@@ -60,11 +60,11 @@ namespace TimeManagementApp.Pages.TimeManagement.Time
                 To = DailyTimeModel.To.ToString(),
                 CreatedAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.CurrentCulture),
                 UpdatedAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.CurrentCulture),
-                WorkTime = DailyTimeModel.WorkTime.ToString() + "h"
+                WorkTime = DailyTimeModel.CalculateWorkTime(DailyTimeModel.From, DailyTimeModel.To).ToString() + "h"
             };
 
             await _dailyRepo.Add(toAdd);
-            SuccessCreationMessage = "Dodano dniówke!";
+            SuccessCreationMessage = "Dodano dniï¿½wke!";
             return RedirectToPage("/TimeManagement/Time/Dniowki");
         }
     }

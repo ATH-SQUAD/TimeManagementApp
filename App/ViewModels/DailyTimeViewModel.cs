@@ -14,5 +14,10 @@ namespace TimeManagementApp.App.ViewModels
         public TimeSpan From { get; set; }
         public TimeSpan To { get; set; }
         public double WorkTime { get; set; }
+
+        public double CalculateWorkTime(TimeSpan From, TimeSpan To)
+        {
+            return To.Hours - From.Hours;
+        }
     }
 }

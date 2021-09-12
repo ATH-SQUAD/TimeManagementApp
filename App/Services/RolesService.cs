@@ -58,7 +58,6 @@ namespace TimeManagementApp.App.Services
             var checkIfEmailExists = await userManager.FindByEmailAsync(Configuration["RootAuth:RootEmail"]);
             var checkIfUsernameExists = await userManager.FindByNameAsync(Configuration["RootAuth:RootName"]);
 
-
             if ((checkIfEmailExists == null) && (checkIfUsernameExists == null))
             {
                 var createUser = await userManager.CreateAsync(userRoot, rootPassword);
