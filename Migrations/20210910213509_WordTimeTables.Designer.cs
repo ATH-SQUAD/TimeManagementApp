@@ -10,8 +10,8 @@ using TimeManagementApp.Database;
 namespace TimeManagementApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210908192608_TimeTables")]
-    partial class TimeTables
+    [Migration("20210910213509_WordTimeTables")]
+    partial class WordTimeTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -274,19 +274,25 @@ namespace TimeManagementApp.Migrations
                     b.Property<string>("CreatedAt")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Date")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("From")
-                        .HasColumnType("int");
+                    b.Property<string>("From")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Job")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("To")
-                        .HasColumnType("int");
+                    b.Property<string>("Person")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("To")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UpdatedAt")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("WorkTime")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -368,13 +374,13 @@ namespace TimeManagementApp.Migrations
                     b.Property<string>("CreatedAt")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DateFrom")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("DateFrom")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DateTo")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("DateTo")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Job")
+                    b.Property<string>("Person")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Reason")

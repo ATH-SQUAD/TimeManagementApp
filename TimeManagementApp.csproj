@@ -92,6 +92,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\Scripts\report\" />
+    <Folder Include="wwwroot\Template\EmailTemplates\Icons\" />
   </ItemGroup>
 
 </Project>

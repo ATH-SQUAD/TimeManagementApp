@@ -10,10 +10,12 @@ namespace TimeManagementApp.Database.Models
     {
         [Key]
         public Guid Id { get; set; }
-        public DateTime Date { get; set; }
+        public string Person { get; set; }
+        public string Date { get; set; }
         public string Job { get; set; }
-        public int From { get; set; }
-        public int To { get; set; }
+        public string From { get; set; }
+        public string To { get; set; }
+        public string WorkTime { get; set; }
         public string CreatedAt { get; set; }
         public string UpdatedAt { get; set; }
     }

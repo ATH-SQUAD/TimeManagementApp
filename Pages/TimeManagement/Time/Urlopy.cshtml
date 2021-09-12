@@ -1,5 +1,5 @@
 ﻿@page
-@model TimeManagementApp.Pages.TimeManagement.Time.DniowkiModel
+@model TimeManagementApp.Pages.TimeManagement.Time.UrlopyModel
 @{ ViewData["Title"] = "Czas Pracy";
     Layout = "~/Pages/Shared/_MainLayout.cshtml"; }
 
@@ -34,23 +34,19 @@
                                 <!-- /.card-header -->
                                 <form method="post" style="align-items: center;">
                                     <div class="input-group">
-                                        <label style="place-self:center">Data: </label>
-                                        <input asp-for="DailyTimeModel.Date" type="date" class="form-control" placeholder="Data">
+                                        <label style="place-self:center">Od: </label>
+                                        <input asp-for="VacationTimeModel.DateFrom" type="date" label="Od" class="form-control" placeholder="Od">
                                     </div>
                                     <div class="input-group">
-                                        <label style="place-self:center">Od:   </label>
-                                        <input asp-for="DailyTimeModel.From" type="time" class="form-control" placeholder="Praca od">
-                                    </div>
-                                    <div class="input-group" style="">
-                                        <label style="place-self:center">Do:   </label>
-                                        <input asp-for="DailyTimeModel.To" type="time" class="form-control" placeholder="Praca do">
+                                        <label style="place-self:center">Do: </label>
+                                        <input asp-for="VacationTimeModel.DateTo" type="date" class="form-control" placeholder="Do">
                                     </div>
                                     <div class="input-group">
-                                        <input asp-for="DailyTimeModel.Job" type="text" class="form-control" placeholder="Zadanie">
+                                        <input asp-for="VacationTimeModel.Reason" type="text" class="form-control" placeholder="Powód">
                                     </div>
                                     </br>
                                     <div class="col-4" style="min-width: fit-content; display: table-cell ">
-                                        <button type="submit" width:max-content, min-width: fit-content" class="btn btn-success btn-block">Dodaj dniówke</button>
+                                        <button type="submit" width:max-content, min-width: fit-content" class="btn btn-success btn-block">Dodaj urlop</button>
                                     </div>
                                 </form>
                                 <!-- /.card-body -->
@@ -69,16 +65,13 @@
                                                             <label asp-for="Times.FirstOrDefault().Person">Pracownik</label>
                                                         </th>
                                                         <th>
-                                                            <label asp-for="Times.FirstOrDefault().Date">Data</label>
+                                                            <label asp-for="Times.FirstOrDefault().DateFrom">Od</label>
                                                         </th>
                                                         <th>
-                                                            <label asp-for="Times.FirstOrDefault().From">Od</label>
+                                                            <label asp-for="Times.FirstOrDefault().DateTo">Do</label>
                                                         </th>
                                                         <th>
-                                                            <label asp-for="Times.FirstOrDefault().To">Do</label>
-                                                        </th>
-                                                        <th>
-                                                            <label asp-for="Times.FirstOrDefault().Job">Wykonywane zlecenie</label>
+                                                            <label asp-for="Times.FirstOrDefault().Reason">Powód</label>
                                                         </th>
                                                         <th>
                                                             <p></p>
@@ -88,28 +81,25 @@
                                                 <tbody>
                                                     @foreach (var item in Model.Times)
                                                     {
-                                        <tr>
+                                                        <tr>
 
-                                            <td>
-                                                @Html.DisplayFor(m => item.Person)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(m => item.Date)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(m => item.From)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(m => item.To)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(m => item.Job)
-                                            </td>
-                                            <td>
-                                                <a asp-page="./UsunDniowke" class="btn btn-danger " asp-route-id="@item.Id">Usuń</a>
-                                            </td>
-                                        </tr>
-}
+                                                            <td>
+                                                                @Html.DisplayFor(m => item.Person)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(m => item.DateFrom)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(m => item.DateTo)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(m => item.Reason)
+                                                            </td>
+                                                            <td>
+                                                                <a asp-page="./UsunUrlop" class="btn btn-danger " asp-route-id="@item.Id">Usuń</a>
+                                                            </td>
+                                                        </tr>
+                                                    }
                                                 </tbody>
                                             </table>
                                         </div>

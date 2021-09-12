@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TimeManagementApp.Migrations
 {
-    public partial class init : Migration
+    public partial class WordTimeTables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -51,20 +51,39 @@ namespace TimeManagementApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Reports",
+                name: "DailyTimes",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    FileName = table.Column<string>(nullable: true),
-                    Owner = table.Column<string>(nullable: true),
-                    ConnectionId = table.Column<Guid>(nullable: false),
+                    Person = table.Column<string>(nullable: true),
+                    Date = table.Column<string>(nullable: true),
+                    Job = table.Column<string>(nullable: true),
+                    From = table.Column<string>(nullable: true),
+                    To = table.Column<string>(nullable: true),
+                    WorkTime = table.Column<string>(nullable: true),
                     CreatedAt = table.Column<string>(nullable: true),
                     UpdatedAt = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Reports", x => x.Id);
+                    table.PrimaryKey("PK_DailyTimes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "VacationTimes",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    Person = table.Column<string>(nullable: true),
+                    DateFrom = table.Column<string>(nullable: true),
+                    DateTo = table.Column<string>(nullable: true),
+                    Reason = table.Column<string>(nullable: true),
+                    CreatedAt = table.Column<string>(nullable: true),
+                    UpdatedAt = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_VacationTimes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -319,13 +338,16 @@ namespace TimeManagementApp.Migrations
                 name: "Connections");
 
             migrationBuilder.DropTable(
+                name: "DailyTimes");
+
+            migrationBuilder.DropTable(
                 name: "MongoConnections");
 
             migrationBuilder.DropTable(
-                name: "Reports");
+                name: "SqlServerConnections");
 
             migrationBuilder.DropTable(
-                name: "SqlServerConnections");
+                name: "VacationTimes");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

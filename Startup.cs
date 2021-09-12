@@ -55,6 +55,8 @@ namespace TimeManagementApp
 
             services.AddScoped<EfCoreConnectionsRepo>();
             services.AddScoped<EfCoreMongoConnectionsRepo>();
+            services.AddScoped<EfCoreDailyRepo>();
+            services.AddScoped<EfCoreVacationRepo>();
 
             // Configure identity system for registering, logging and authenticating users.
             services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
@@ -68,7 +70,7 @@ namespace TimeManagementApp
                 options.SignIn.RequireConfirmedEmail = true;
                 options.Tokens.EmailConfirmationTokenProvider = "emailconfirmation";
                 options.Stores.MaxLengthForKeys = 128;
-            })  .AddEntityFrameworkStores<AppDbContext>()
+            }).AddEntityFrameworkStores<AppDbContext>()
                 .AddRoles<ApplicationRole>()
                 .AddDefaultUI()
                 .AddDefaultTokenProviders()
