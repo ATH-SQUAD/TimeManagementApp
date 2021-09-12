@@ -10,6 +10,7 @@ using TimeManagementApp.Tests.Utility;
 
 namespace TimeManagementApp.Tests
 {
+    [TestFixture]
     public class Tests
     {
         [Test]
@@ -42,7 +43,6 @@ namespace TimeManagementApp.Tests
                 // Assert
                 Assert.AreEqual((timeTo.TimeOfDay.Hours - timeFrom.TimeOfDay.Hours) + "h", dailyRepo.Get(dailyTime.Id).Result.WorkTime);
                 Assert.AreEqual(timeFrom.ToString(CultureInfo.InvariantCulture), dailyRepo.Get(dailyTime.Id).Result.From);
-                //Assert.IsNotNull();
             }
         }
         
@@ -52,22 +52,28 @@ namespace TimeManagementApp.Tests
             using (var db = new AppDbContext(Utilities.TestDbContextOptions()))
             {
                 // Arrange
+                DateTime dateFrom = new DateTime(2021,12,01);
+                DateTime dateTo = new DateTime(2021,12,31);
+                
                 var vacationRepo = new EfCoreVacationRepo(db);
+                var vacationTimeViewModel = new VacationTimeViewModel();
                 var vacationTime = new VacationTime()
                 {
                     Id = Guid.NewGuid(),
                     Person = "master",
-                    DateFrom = "2021-12-01",
-                    DateTo = "2021-12-31",
+                    DateFrom = dateFrom.ToString(CultureInfo.InvariantCulture),
+                    DateTo = dateTo.ToString(CultureInfo.InvariantCulture),
                     Reason = "Testing vacation",
                     CreatedAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.CurrentCulture),
-                    UpdatedAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.CurrentCulture)
+                    UpdatedAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.CurrentCulture),
+                    TotalDays = vacationTimeViewModel.CalculateDays(dateFrom, dateTo).ToString(CultureInfo.InvariantCulture) + " dni"
                 };
 
                 // Act
                 vacationRepo.Add(vacationTime);
                 
                 // Assert
+                Assert.AreEqual((dateTo - dateFrom).TotalDays + " dni", vacationRepo.Get(vacationTime.Id).Result.TotalDays);
                 Assert.AreEqual(vacationTime.Reason, vacationRepo.Get(vacationTime.Id).Result.Reason);
                 Assert.IsNotNull(vacationRepo.Get(vacationTime.Id).Result.Person);
             }

@@ -13,7 +13,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bfd30f05-cf39-41f9-a421-041697d23d66" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TimeManagementApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TimeManagementApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TimeManagementApp.Tests/DailyTime_AddNewDailyTime.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TimeManagementApp.Tests/UnitTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TimeManagementApp.Tests/UnitTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TimeManagementApp.Tests/UnitTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +100,7 @@
       <option name="presentableId" value="Default" />
       <updated>1631196712413</updated>
       <workItem from="1631196715851" duration="1202000" />
-      <workItem from="1631453836230" duration="9885000" />
+      <workItem from="1631453836230" duration="10518000" />
     </task>
     <servers />
   </component>
