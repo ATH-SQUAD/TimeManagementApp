@@ -45,5 +45,32 @@ namespace TimeManagementApp.Tests
                 Assert.IsNotNull();
             }
         }
+        
+        [Test]
+        public void VacationTime_AddNewVacationTime()
+        {
+            using (var db = new AppDbContext(Utilities.TestDbContextOptions()))
+            {
+                // Arrange
+                var vacationRepo = new EfCoreVacationRepo(db);
+                var vacationTime = new VacationTime()
+                {
+                    Id = Guid.NewGuid(),
+                    Person = "master",
+                    DateFrom = "2021-12-01",
+                    DateTo = "2021-12-31",
+                    Reason = "Testing vacation",
+                    CreatedAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.CurrentCulture),
+                    UpdatedAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.CurrentCulture)
+                };
+
+                // Act
+                vacationRepo.Add(vacationTime);
+                
+                // Assert
+                Assert.AreEqual(vacationTime.Reason, vacationRepo.Get(vacationTime.Id).Result.Reason);
+                Assert.IsNotNull(vacationRepo.Get(vacationTime.Id).Result.Person);
+            }
+        }
     }
 }
