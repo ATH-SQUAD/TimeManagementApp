@@ -34,7 +34,10 @@ namespace TimeManagementApp.Pages.TimeManagement.Time
         private readonly AppDbContext _context;
         private readonly EfCoreDailyRepo _dailyRepo;
         private readonly UserManager<ApplicationUser> _userManager;
-        public DniowkiModel(SignInManager<ApplicationUser> signInManager,UserManager<ApplicationUser> userManager, EfCoreDailyRepo dailyRepo, AppDbContext context) :base(signInManager)
+        public DniowkiModel(SignInManager<ApplicationUser> signInManager,
+            UserManager<ApplicationUser> userManager, 
+            EfCoreDailyRepo dailyRepo, 
+            AppDbContext context) :base(signInManager)
         {
             _signInManager = signInManager;
             _context = context;

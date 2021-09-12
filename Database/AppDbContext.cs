@@ -4,13 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using TimeManagementApp.App.Enums;
 using TimeManagementApp.App.Extensions;
 using TimeManagementApp.Database.Models;
-using System;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using TimeManagementApp.Database.Models;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 
 namespace TimeManagementApp.Database
