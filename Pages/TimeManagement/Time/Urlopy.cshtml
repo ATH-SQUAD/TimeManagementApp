@@ -71,6 +71,9 @@
                                                             <label asp-for="Times.FirstOrDefault().DateTo">Do</label>
                                                         </th>
                                                         <th>
+                                                            <label asp-for="Times.FirstOrDefault().TotalDays">Suma dni</label>
+                                                        </th>
+                                                        <th>
                                                             <label asp-for="Times.FirstOrDefault().Reason">Powód</label>
                                                         </th>
                                                         <th>
@@ -81,24 +84,27 @@
                                                 <tbody>
                                                     @foreach (var item in Model.Times)
                                                     {
-                                                        <tr>
+                                                    <tr>
 
-                                                            <td>
-                                                                @Html.DisplayFor(m => item.Person)
-                                                            </td>
-                                                            <td>
-                                                                @Html.DisplayFor(m => item.DateFrom)
-                                                            </td>
-                                                            <td>
-                                                                @Html.DisplayFor(m => item.DateTo)
-                                                            </td>
-                                                            <td>
-                                                                @Html.DisplayFor(m => item.Reason)
-                                                            </td>
-                                                            <td>
-                                                                <a asp-page="./UsunUrlop" class="btn btn-danger " asp-route-id="@item.Id">Usuń</a>
-                                                            </td>
-                                                        </tr>
+                                                        <td>
+                                                            @Html.DisplayFor(m => item.Person)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(m => item.DateFrom)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(m => item.DateTo)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(m => item.TotalDays)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(m => item.Reason)
+                                                        </td>
+                                                        <td>
+                                                            <a asp-page="./UsunUrlop" class="btn btn-danger " asp-route-id="@item.Id">Usuń</a>
+                                                        </td>
+                                                    </tr>
                                                     }
                                                 </tbody>
                                             </table>

@@ -47,21 +47,13 @@ namespace TimeManagementApp.Pages.TimeManagement.Time
             var userName = User.Identity.Name;
             var toAdd = new VacationTime()
             {
-                //Id = Guid.NewGuid(),
-                //Person = userName,
-                //Date = VacationTimeModel..ToString(),
-                //Job = VacationTimeModel.Job,
-                //From = VacationTimeModel.From.ToString(),
-                //To = VacationTimeModel.To.ToString(),
-                //CreatedAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.CurrentCulture),
-                //UpdatedAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.CurrentCulture),
-                //WorkTime = DailyTimeModel.WorkTime.ToString() + "h"
                 Id = Guid.NewGuid(),
                 DateFrom = VacationTimeModel.DateFrom.ToString("yyyy-MM-dd"),
                 DateTo = VacationTimeModel.DateTo.ToString("yyyy-MM-dd"),
                 Reason = VacationTimeModel.Reason,
                 CreatedAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.CurrentCulture),
-                Person = userName
+                Person = userName,
+                TotalDays = VacationTimeModel.CalculateDays(VacationTimeModel.DateFrom, VacationTimeModel.DateTo).ToString() + " dni"
             };
 
             await _efCoreVacation.Add(toAdd);

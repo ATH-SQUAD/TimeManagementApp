@@ -10,9 +10,6 @@ namespace TimeManagementApp.App.Models
     {
         public static List<Claim> AllClaims = new List<Claim>()
         {
-            new Claim("Tworzenie Raportów", "Tworzenie Raportów"),
-            new Claim("Edycja Raportów","Edycja Raportów"),
-            new Claim("Usuwanie Raportów","Usuwanie Raportów"),
             new Claim("Zarządzanie użytkownikami","Zarządzanie użytkownikami")
         };
     }

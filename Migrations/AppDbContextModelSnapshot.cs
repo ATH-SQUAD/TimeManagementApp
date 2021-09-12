@@ -384,6 +384,9 @@ namespace TimeManagementApp.Migrations
                     b.Property<string>("Reason")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("TotalDays")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("UpdatedAt")
                         .HasColumnType("nvarchar(max)");
 

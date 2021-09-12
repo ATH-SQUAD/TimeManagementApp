@@ -10,8 +10,8 @@ using TimeManagementApp.Database;
 namespace TimeManagementApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210910213509_WordTimeTables")]
-    partial class WordTimeTables
+    [Migration("20210912163911_TotalDaysAdd")]
+    partial class TotalDaysAdd
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -384,6 +384,9 @@ namespace TimeManagementApp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Reason")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TotalDays")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UpdatedAt")

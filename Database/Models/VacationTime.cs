@@ -15,6 +15,7 @@ namespace TimeManagementApp.Database.Models
         public string DateFrom { get; set; }
         public string DateTo { get; set; }
         public string Reason { get; set; }
+        public string TotalDays { get; set; }
         public string CreatedAt { get; set; }
         public string UpdatedAt { get; set; }
     }
