@@ -9,6 +9,10 @@
     <Content Remove="System\**" />
     <EmbeddedResource Remove="System\**" />
     <None Remove="System\**" />
+    <EmbeddedResource Remove="TimeManagementApp.Tests\**" />
+    <Compile Remove="TimeManagementApp.Tests\**" />
+    <None Remove="TimeManagementApp.Tests\**" />
+    <Content Remove="TimeManagementApp.Tests\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,6 +33,12 @@
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="compilerconfig.json" />
+    <_ContentIncludedByDefault Remove="TimeManagementApp.Tests\bin\Debug\netcoreapp3.1\TimeManagementApp.Tests.deps.json" />
+    <_ContentIncludedByDefault Remove="TimeManagementApp.Tests\bin\Debug\netcoreapp3.1\TimeManagementApp.Tests.runtimeconfig.dev.json" />
+    <_ContentIncludedByDefault Remove="TimeManagementApp.Tests\bin\Debug\netcoreapp3.1\TimeManagementApp.Tests.runtimeconfig.json" />
+    <_ContentIncludedByDefault Remove="TimeManagementApp.Tests\obj\project.assets.json" />
+    <_ContentIncludedByDefault Remove="TimeManagementApp.Tests\obj\project.packagespec.json" />
+    <_ContentIncludedByDefault Remove="TimeManagementApp.Tests\obj\TimeManagementApp.Tests.csproj.nuget.dgspec.json" />
   </ItemGroup>
 
   <ItemGroup>
