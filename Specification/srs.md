@@ -9,7 +9,7 @@ Autorzy:
 * Filip Niedziela
 * Jakub Bogacz  
 
-26-05-2021
+10-09-2021
 
 ## 1. Wstęp
 ### 1.1 Cel dokumentu
@@ -24,7 +24,8 @@ Podstawowe funkcjonalności (wyjaśnione później):
 * Podział na użytkowników,
 * Rejestracja czasu pracy,
 * Kalendarz (urlopy, zaplanowane zadania),
-* Zestawienia.
+* ~~Zestawienia.~~
+  * **Proste** wyświetlanie wprowadzonych informacji
 
 ### 1.3 Definicje, akronimy, skróty
 
@@ -49,7 +50,7 @@ A(Użytkownik) --- B(Przeglądarka)
 * Podział na użytkowników
 * Kontrolowanie czasu pracy (rozpoczęcie, zakończenie)
 * Planowanie zadań, urlopów
-* Proste zestawienia przechowywanych informacji
+* **Proste** zestawienia przechowywanych informacji
 
 ### 2.3 Ograniczenia
 
@@ -77,7 +78,8 @@ A(Użytkownik) --- B(Przeglądarka)
 
 Założenia procesu tworzenia:
 
-* Wykonanie aplikacji w okresie **nie przekraczającym** **dwóch miesięcy**
+* ~~Wykonanie aplikacji w okresie **nie przekraczającym** **dwóch miesięcy**~~
+  * Czas wydłużony do września
 * Spotkania dwa razy w tygodniu
 * Mały nacisk na systemy zarządzania projektem
 * Znaczny nacisk na systemy kontroli wersji
@@ -102,7 +104,9 @@ Poniżej przedstawia się podział wymagań technologii zależnie od działu:
 ## 3. Wymagania
 ### 3.1 Interfejsy zewnętrzne
 #### 3.1.1 Interfejs użytkownika
-Interfejs użytkownika oparty jest o [AdminLTE Template](https://adminlte.io/).
+Interfejs użytkownika oparty jest o [AdminLTE Template](https://adminlte.io/). 
+
+*Pierwotnym założeniem było pozostanie przy domyślnym UI Razor Pages, jednak użyty został darmowy template.*
 
 #### 3.1.2 Interfejs sprzętowy
 Komputer, telefon.
@@ -122,17 +126,17 @@ Od strony serwera:
 * Podział na użytkowników
 * Kontrolowanie czasu pracy (rozpoczęcie, zakończenie)
 * Planowanie zadań, urlopów
-* Proste zestawienia przechowywanych informacji
+* **Proste** zestawienia przechowywanych informacji
 
 ### 3.3 Jakość usług
 #### 3.3.1 Bezpieczeństwo
-* *Brak rejestracji - tworzenie użytkowników, ich dostępem do aplikacji i rolami będzie zarządzał Administrator*
-  * Zmiana założeń
+* ~~Brak rejestracji - tworzenie użytkowników, ich dostępem do aplikacji i rolami będzie zarządzał Administrator~~
+  * Zmiana założeń, rejestracja została dodana
 * Logowanie
 
 #### 3.3.2 Niezawodność
 
-* Wersja projektu przeznaczona do pracy będzie zawierać minimum funkcjonalności, aby zapewnić jej stabilność.
+* Wersja projektu przeznaczona do pracy będzie zawierać minimum funkcjonalności, aby zapewnić jej stabilność
 * Podczas tworzenia będzie wykonanych co najmniej 2 testy jednostkowe kluczowych elementów
 
 ### 3.4 Projektowanie i implementacja
@@ -141,16 +145,16 @@ Od strony serwera:
 Nie planowany jest kreator instalacyjny - projekt będzie możliwy do skompilowania według instrukcji przedstawionych w *README.md*.
 
 #### 3.4.7 Termin końcowy
-Przewidywany termin oddania nie przekracza 15-09-2021.
+Przewidywany termin oddania nie przekracza ~~30-07-2021~~15-09-2021.
 
-#### 3.4.8 Proof of Concept
-Wersja z dnia 10-09-2021 zawiera znaczną większość opisanych wyżej funkcjonalności.
+## 4. Proof of Concept
+Wersja z dnia 10-09-2021 zawiera znaczną większość opisanych wyżej funkcjonalności. W dniu oddania specyfikacji na głównym branchu znajdować się będzie aktualna, finalna wersja projektu.
 
 Wyjątki:
 
 * Brak zestawień (wyłącznie podstawowe informacje)
 * Możliwość rejestracji przez użytkownika
 
-## 4. Załączniki
+## 5. Załączniki
 
 * Repozytorium --> https://github.com/ATH-SQUAD/TimeManagementApp/
