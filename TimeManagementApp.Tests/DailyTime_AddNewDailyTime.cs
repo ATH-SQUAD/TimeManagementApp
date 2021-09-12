@@ -42,7 +42,7 @@ namespace TimeManagementApp.Tests
                 // Assert
                 Assert.AreEqual((timeTo.TimeOfDay.Hours - timeFrom.TimeOfDay.Hours) + "h", dailyRepo.Get(dailyTime.Id).Result.WorkTime);
                 Assert.AreEqual(timeFrom.ToString(CultureInfo.InvariantCulture), dailyRepo.Get(dailyTime.Id).Result.From);
-                Assert.IsNotNull();
+                //Assert.IsNotNull();
             }
         }
     }

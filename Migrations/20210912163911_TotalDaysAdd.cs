@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TimeManagementApp.Migrations
 {
-    public partial class WordTimeTables : Migration
+    public partial class TotalDaysAdd : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -78,6 +78,7 @@ namespace TimeManagementApp.Migrations
                     DateFrom = table.Column<string>(nullable: true),
                     DateTo = table.Column<string>(nullable: true),
                     Reason = table.Column<string>(nullable: true),
+                    TotalDays = table.Column<string>(nullable: true),
                     CreatedAt = table.Column<string>(nullable: true),
                     UpdatedAt = table.Column<string>(nullable: true)
                 },
